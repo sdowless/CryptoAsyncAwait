@@ -19,7 +19,7 @@ class ContentViewModel: ObservableObject {
     }
     
     init() {
-        fetchCoinsWithURLSession()
+        loadDataAsync()
     }
     
     func handleRefresh() {
