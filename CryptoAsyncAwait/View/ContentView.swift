@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ContentViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                ForEach(viewModel.coins) { coin in
+                    CoinRowView(coin: coin)
+                }
+            }
+            .navigationTitle("Live Prices")
         }
-        .padding()
     }
 }
 
